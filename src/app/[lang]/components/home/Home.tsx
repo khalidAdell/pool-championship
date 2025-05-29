@@ -1229,7 +1229,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       {/* About Section */}
       <section className="py-20 relative" ref={aboutRef}>
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-          <div className={`about-description w-full mb-8 lg:mb-0 z-10 px-4`}>
+          <div className={`about-description w-full mb-8 lg:mb-0 z-10`}>
             <h2
               className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase`}
             >
