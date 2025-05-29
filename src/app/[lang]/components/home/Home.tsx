@@ -918,7 +918,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       <section ref={playersRef} className="py-16 relative bg-[#0A2A1A] z-10">
         <div className={`absolute inset-0 opacity-60 z-10`}>
           <Image
-            src="/images/WPC2024-1080x1080.png"
+            src="/images/WPC2024.png"
             alt="WPC 2024 Background"
             width={1380}
             height={1380}
