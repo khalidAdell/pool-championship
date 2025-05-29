@@ -1228,55 +1228,55 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
       {/* About Section */}
       <section className="py-20 relative" ref={aboutRef}>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-            <div className={`about-description w-full mb-8 lg:mb-0 z-10`}>
-              <h2
-                className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase`}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
+          <div
+            className={`container about-description w-full mb-8 lg:mb-0 z-10 px-4`}
+          >
+            <h2
+              className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase`}
+            >
+              {page.about?.title || "ABOUT"}
+            </h2>
+            <p
+              className={`text-white text-sm md:text-base mb-6 md:mb-8 leading-relaxed`}
+            >
+              {page.about?.description ||
+                "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."}
+            </p>
+            <div>
+              <Link
+                href={`/${lang}/about`}
+                className="inline-block rounded-xl bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
               >
-                {page.about?.title || "ABOUT"}
-              </h2>
-              <p
-                className={`text-white text-sm md:text-base mb-6 md:mb-8 leading-relaxed`}
-              >
-                {page.about?.description ||
-                  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."}
-              </p>
-              <div>
-                <Link
-                  href={`/${lang}/about`}
-                  className="inline-block rounded-xl bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
-                >
-                  {page.common?.readMore || "Read More"}
-                </Link>
-              </div>
+                {page.common?.readMore || "Read More"}
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
+            {/* Circle background */}
+            <div
+              className={`absolute ltr:right-0 rtl:left-0 top-4 z-0 w-[80%] md:w-auto gentle-float`}
+            >
+              <Image
+                src="/images/Mask Group 8.png"
+                alt="Circle Background"
+                width={500}
+                height={500}
+                className="object"
+              />
             </div>
 
-            <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
-              {/* Circle background */}
-              <div
-                className={`absolute ltr:right-0 rtl:left-0 top-4 z-0 w-[80%] md:w-auto gentle-float`}
-              >
-                <Image
-                  src="/images/Mask Group 8.png"
-                  alt="Circle Background"
-                  width={500}
-                  height={500}
-                  className="object"
-                />
-              </div>
-
-              {/* Billiard table image */}
-              <div
-                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex rtl:justify-start ltr:justify-end md:block rtl:transform rtl:scale-x-[-1]`}
-              >
-                <Image
-                  src="/images/58878.png"
-                  alt="Pool Table"
-                  width={400}
-                  height={300}
-                />
-              </div>
+            {/* Billiard table image */}
+            <div
+              className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex rtl:justify-start ltr:justify-end md:block rtl:transform rtl:scale-x-[-1]`}
+            >
+              <Image
+                src="/images/58878.png"
+                alt="Pool Table"
+                width={400}
+                height={300}
+              />
             </div>
           </div>
         </div>
