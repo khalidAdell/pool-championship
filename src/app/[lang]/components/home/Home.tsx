@@ -656,11 +656,8 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                 prevEl: ".match-swiper-button-prev",
               }}
               breakpoints={{
-                640: {
+                800: {
                   slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
                 },
               }}
             >
