@@ -296,8 +296,8 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         },
         opacity: 0,
         y: 50,
-        duration: 1.5, // smoother, longer
-        ease: "power3.out", // gentle ease
+        duration: 1,
+        ease: "power3.out",
       });
 
       gsap.from(".video-news-card", {
@@ -343,12 +343,12 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       gsap.from(".about-title", {
         scrollTrigger: {
           trigger: aboutRef.current,
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        y: 50,
-        duration: 1.5, // smoother, longer
+        y: 30,
+        duration: 1,
         ease: "power3.out",
       });
 
@@ -373,9 +373,9 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         },
         opacity: 0,
         y: 50,
-        duration: 1.5, // smoother, longer
+        duration: 1,
         delay: 0.5,
-        ease: "power3.out",
+        ease: "power2.out",
       });
 
       gsap.from(".about-images", {
@@ -427,8 +427,8 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         },
         opacity: 0,
         y: 30,
-        duration: 1.5,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "power2.out",
       });
 
       gsap.from(".organizers-divider", {
@@ -439,8 +439,8 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         },
         opacity: 0,
         y: 30,
-        duration: 1.5,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "power2.out",
       });
 
       gsap.from(".organizers-image", {
@@ -451,9 +451,10 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         },
         opacity: 0,
         y: 30,
-        duration: 1.5,
-        ease: "power3.out",
+        duration: 1,
+        ease: "power2.out",
       });
+
       // Footer animations
       gsap.from(".footer-skyline", {
         scrollTrigger: {
@@ -1021,9 +1022,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
             <div className="flex flex-col lg:flex-row gap-8">
               {/* Main News - Left Side */}
-              <div
-                className={`main-news-card w-full lg:w-7/12 animate-slideRight delay-200`}
-              >
+              <div className={`w-full lg:w-7/12 animate-slideRight delay-200`}>
                 <div className="bg-white rounded-lg overflow-hidden shadow-lg">
                   <div className="relative">
                     <Image
@@ -1031,7 +1030,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                       alt="News"
                       width={800}
                       height={400}
-                      className="w-full h-[300px] object-cover"
+                      className="main-news-card w-full h-[300px] object-cover"
                     />
                   </div>
                   <div className="p-6">
@@ -1198,20 +1197,20 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
             <div
-              className={`w-full mb-8 lg:mb-0 z-10 animate-slideRight delay-200`}
+              className={`about-description w-full mb-8 lg:mb-0 z-10`}
             >
               <h2
-                className={`about-title text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase animate-fadeIn delay-300`}
+                className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase`}
               >
                 {page.about?.title || "ABOUT"}
               </h2>
               <p
-                className={`about-description text-white text-sm md:text-base mb-6 md:mb-8 leading-relaxed animate-slideUp delay-400`}
+                className={`text-white text-sm md:text-base mb-6 md:mb-8 leading-relaxed animate-slideUp delay-400`}
               >
                 {page.about?.description ||
                   "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."}
               </p>
-              <div className={`about-button animate-slideUp delay-500`}>
+              <div>
                 <Link
                   href={`/${lang}/about`}
                   className="inline-block bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
