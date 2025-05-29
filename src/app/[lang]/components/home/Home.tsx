@@ -1210,7 +1210,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
               {/* Billiard table image */}
               <div
-                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex justify-center md:block rtl:transform rtl:scale-x-[-1]`}
+                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex justify-start md:block rtl:transform rtl:scale-x-[-1]`}
               >
                 <Image
                   src="/images/58878.png"
