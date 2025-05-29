@@ -307,10 +307,10 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        x: 50,
+        y: 50,
         duration: 1,
         stagger: 0.2,
-        ease: "power3.out",
+        ease: "power2.out",
       });
 
       // Participants section animations
@@ -545,9 +545,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           />
 
           {/* Triangular decoration */}
-          <div
-            className={`absolute bottom-0 right-0 z-10 hero-decoration floating-decoration`}
-          >
+          <div className={`absolute bottom-0 right-0 z-10`}>
             <Image
               src="/images/Balls Pattern.png"
               alt="Decoration"
@@ -1003,11 +1001,9 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         <section className="py-16 relative z-10" ref={newsRef}>
           <div className="container mx-auto px-4 relative z-10 mb-10">
             <div
-              className={`news-header flex items-center justify-between mb-10 animate-fadeIn`}
+              className={`news-header flex items-center justify-between mb-10`}
             >
-              <h2
-                className={`text-white text-3xl font-bold animate-fadeIn delay-200`}
-              >
+              <h2 className={`text-white text-3xl font-bold`}>
                 {page.news?.popularNews || "Popular News"}
               </h2>
               <div className="transition-transform hover:scale-[1.02] active:scale-[0.98]">
@@ -1022,7 +1018,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
             <div className="flex flex-col lg:flex-row gap-8">
               {/* Main News - Left Side */}
-              <div className={`w-full lg:w-7/12 animate-slideRight delay-200`}>
+              <div className={`w-full lg:w-7/12`}>
                 <div className="bg-white rounded-lg overflow-hidden shadow-lg">
                   <div className="relative">
                     <Image
@@ -1055,12 +1051,10 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               </div>
 
               {/* Video News - Right Side */}
-              <div
-                className={`w-full lg:w-5/12 flex flex-col gap-6 h-[460px] animate-slideLeft delay-200`}
-              >
+              <div className={`w-full lg:w-5/12 flex flex-col gap-6 h-[460px]`}>
                 {/* Video 1 */}
                 <div
-                  className={`video-news-card bg-white rounded-lg overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02] animate-slideLeft delay-300`}
+                  className={`video-news-card bg-white rounded-lg overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02]`}
                 >
                   <div className="w-1/2 relative">
                     <Image
@@ -1098,7 +1092,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
                 {/* Video 2 */}
                 <div
-                  className={`video-news-card bg-white rounded-lg overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02] animate-slideLeft delay-400`}
+                  className={`video-news-card bg-white rounded-lg overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02]`}
                 >
                   <div className="w-1/2 relative">
                     <Image
@@ -1196,16 +1190,14 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       <section className="py-20 relative" ref={aboutRef}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-            <div
-              className={`about-description w-full mb-8 lg:mb-0 z-10`}
-            >
+            <div className={`about-description w-full mb-8 lg:mb-0 z-10`}>
               <h2
                 className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase`}
               >
                 {page.about?.title || "ABOUT"}
               </h2>
               <p
-                className={`text-white text-sm md:text-base mb-6 md:mb-8 leading-relaxed animate-slideUp delay-400`}
+                className={`text-white text-sm md:text-base mb-6 md:mb-8 leading-relaxed`}
               >
                 {page.about?.description ||
                   "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."}
@@ -1223,7 +1215,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
               {/* Circle background */}
               <div
-                className={`absolute ltr:right-0 rtl:left-0 top-4 z-0 w-[80%] md:w-auto hidden md:block animate-slideLeft delay-200 animate-gentle-float`}
+                className={`absolute ltr:right-0 rtl:left-0 top-4 z-0 w-[80%] md:w-auto gentle-float`}
               >
                 <Image
                   src="/images/Mask Group 8.png"
@@ -1255,7 +1247,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       <section className="py-10 relative z-10 bg-[#0A2A1A]" ref={galleryRef}>
         <div className="container mx-auto px-4 hidden sm:block">
           <h2
-            className={`gallery-title text-white text-4xl font-bold mb-10 ml-4 rtl:ml-0 rtl:mr-4 animate-fadeIn`}
+            className={`gallery-title text-white text-4xl font-bold mb-10 ml-4 rtl:ml-0 rtl:mr-4`}
           >
             {page.gallery?.title || "Gallery"}
           </h2>
@@ -1264,7 +1256,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           <div className="relative gallery-image ">
             {/* Event image (large triangle - left) */}
             <div
-              className={`absolute w-[70%] top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 animate-slideRight delay-300`}
+              className={`absolute w-[70%] top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2`}
             >
               <Image
                 src="/images/Mask group-4.png"
@@ -1277,7 +1269,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
             {/* Restaurant image (top right) */}
             <div
-              className={`absolute w-[40%] top-1/2 left-[40%] -translate-x-[10%] -translate-y-[100%] delay-200`}
+              className={`absolute w-[40%] top-1/2 left-[40%] -translate-x-[10%] -translate-y-[100%]`}
             >
               <Image
                 src="/images/Mask group-5.png"
@@ -1289,7 +1281,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </div>
             {/* Championship image (bottom) */}
             <div
-              className={`absolute w-[30%] top-1/2 left-[40%] translate-x-[35%] -translate-y-[10%] animate-slideUp delay-400`}
+              className={`absolute w-[30%] top-1/2 left-[40%] translate-x-[35%] -translate-y-[10%]`}
             >
               <Image
                 src="/images/Mask group-6.png"
@@ -1301,7 +1293,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </div>
             {/* Stadium image (bottom right) */}
             <div
-              className={`absolute w-[35%] top-1/2 left-[40%] translate-x-[60%] -translate-y-[80%] animate-slideUp delay-300`}
+              className={`absolute w-[35%] top-1/2 left-[40%] translate-x-[60%] -translate-y-[80%]`}
             >
               <Image
                 src="/images/Mask group-7.png"
@@ -1318,7 +1310,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         </div>
         <div className="flex flex-col gap-4 sm:hidden">
           <h2
-            className={`text-white text-4xl font-bold mb-10 ml-4 rtl:ml-0 rtl:mr-4 animate-fadeIn`}
+            className={`text-white text-4xl font-bold mb-10 ml-4 rtl:ml-0 rtl:mr-4`}
           >
             {page.gallery?.title || "Gallery"}
           </h2>
@@ -1364,19 +1356,17 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       {/* Organizers Section */}
       <section className="py-16 relative z-10" ref={organizersRef}>
         <div className="container mx-auto px-4">
-          <div className={`mb-10 animate-fadeIn`}>
+          <div className={`mb-10`}>
             <h2
-              className={`organizers-title text-white text-3xl font-bold mb-4 animate-slideDown delay-200`}
+              className={`organizers-title text-white text-3xl font-bold mb-4`}
             >
               {page.organizers?.title || "Organizers"}
             </h2>
-            <div
-              className={`organizers-divider h-[1px] bg-[#1C3C2C] animate-growWidth delay-300`}
-            ></div>
+            <div className={`organizers-divider h-[1px] bg-[#1C3C2C]`}></div>
           </div>
 
           <div
-            className={`organizers-image grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center animate-slideUp delay-300`}
+            className={`organizers-image grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center`}
           >
             <Image
               src="/images/Organizers.png"
@@ -1391,11 +1381,11 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
       {/* Footer */}
       <footer
-        className={`py-8 border-t border-[#1C3C2C] relative z-10 animate-fadeIn delay-400`}
+        className={`py-8 border-t border-[#1C3C2C] relative z-10`}
         ref={footerRef}
       >
         <div
-          className={`footer-skyline mb-6 transition-transform hover:scale-[1.02] animate-slideUp delay-500`}
+          className={`footer-skyline mb-6 transition-transform hover:scale-[1.02]`}
         >
           <Image
             src="/images/Jeddah Skyline.png"
@@ -1406,9 +1396,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             unoptimized
           />
         </div>
-        <div
-          className={`footer-copyright container mx-auto px-4 text-center animate-slideUp delay-600`}
-        >
+        <div className={`footer-copyright container mx-auto px-4 text-center`}>
           <p className="text-[#A3A3A3] text-sm hover:text-[#BF9447] transition-colors duration-300">
             {new Date().getFullYear()}{" "}
             {page.footer?.copyright ||
