@@ -622,14 +622,14 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
         {/* Player image */}
         <div
-          className={`absolute top-0 bottom-0 right-0 -translate-y-28 w-[50%] md:w-[60%] skill-player`}
+          className={`absolute top-0 bottom-0 ltr:right-0 rtl:left-0 -translate-y-28 w-[70%] md:w-[60%] skill-player`}
         >
           <Image
             src="/images/Mask Group 10.png"
             alt="Pool Player"
             width={800}
             height={800}
-            className="object-contain rtl:transform rtl:scale-x-[-1] absolute right-0"
+            className="object-contain rtl:transform rtl:scale-x-[-1] absolute ltr:right-0 rtl:left-0"
             priority
           />
         </div>
