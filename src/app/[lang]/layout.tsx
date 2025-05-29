@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { Locale } from "../../../i18n.config";
 import { getDictionary } from "../../../lib/dictionary";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import Footer from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -34,7 +34,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${
+        className={`${inter.variable} ${geistMono.variable} antialiased ${
           lang === "ar" ? "font-arabic" : ""
         }`}
       >
