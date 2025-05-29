@@ -1178,7 +1178,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               <div>
                 <Link
                   href={`/${lang}/about`}
-                  className="inline-block bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
+                  className="inline-block rounded-lg bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
                 >
                   {page.common?.readMore || "Read More"}
                 </Link>

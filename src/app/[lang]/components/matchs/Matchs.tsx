@@ -209,18 +209,18 @@ const MatchsPage = ({ lang, page }: { lang: Locale; page: any }) => {
       });
 
       // Match cards animations
-      gsap.from(".match-card", {
-        scrollTrigger: {
-          trigger: ".matchs-container",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out",
-      });
+      // gsap.from(".match-card", {
+      //   scrollTrigger: {
+      //     trigger: ".matchs-container",
+      //     start: "top 80%",
+      //     toggleActions: "play none none reverse",
+      //   },
+      //   opacity: 0,
+      //   y: 50,
+      //   duration: 0.8,
+      //   stagger: 0.2,
+      //   ease: "power2.out",
+      // });
 
       // Floating animation for decorative elements
       gsap.to(".floating-decoration", {
@@ -489,7 +489,7 @@ const MatchsPage = ({ lang, page }: { lang: Locale; page: any }) => {
           </div>
 
           {/* Matchs Container */}
-          <div className="">
+          <div className="matchs-container">
             {filteredMatchs.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {filteredMatchs.map(renderMatchCard)}
