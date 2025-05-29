@@ -1228,10 +1228,8 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
       {/* About Section */}
       <section className="py-20 relative" ref={aboutRef}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-          <div
-            className={`container about-description w-full mb-8 lg:mb-0 z-10 px-4`}
-          >
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
+          <div className={`about-description w-full mb-8 lg:mb-0 z-10 px-4`}>
             <h2
               className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-wide uppercase`}
             >
@@ -1253,7 +1251,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </div>
           </div>
 
-          <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
+          <div className="relative translate-x-[2rem] h-[300px] md:h-[400px] lg:h-[500px] w-full">
             {/* Circle background */}
             <div
               className={`absolute ltr:right-0 rtl:left-0 top-4 z-0 w-[80%] md:w-auto gentle-float`}
