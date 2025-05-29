@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import type { Locale } from "../../../../../i18n.config";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -502,9 +503,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       className="min-h-screen flex flex-col bg-[#0A2A1A] relative overflow-hidden"
     >
       {/* Hero Section */}
-      <section
-        className={`relative z-10 h-[100vh] max-h-[800px] min-h-[600px]`}
-      >
+      <section className={`relative z-10 h-[100vh]`}>
         {/* Hero Background Image */}
         <div className={`absolute inset-0 z-0 rtl:rotate-180 rtl:scale-y-[-1]`}>
           <div className="absolute inset-0 bg-[#0A2A1A] lg:hidden opacity-80 z-0"></div>
@@ -513,7 +512,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             alt="Pool Championship"
             width={1920}
             height={1080}
-            className="w-full h-[100vh] object-cover"
+            className="w-full lg:object-contain object-cover lg:h-auto h-[100dvh] min-h-[100dvh]"
             priority
           />
 
@@ -532,7 +531,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         {/* Hero Content */}
         <div
           ref={heroContentRef}
-          className={`container mx-auto h-full px-4 flex items-center justify-end relative z-10`}
+          className={`container mx-auto h-full px-4 flex items-center justify-end z-10`}
         >
           <div className="w-full lg:w-1/2 flex flex-col items-start gap-2">
             <div className={`mb-6`}>
@@ -564,10 +563,10 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       {/* A Game of Skill and Speed Section */}
       <section
         ref={skillSectionRef}
-        className="relative pt-0 pb-0 z-10 min-h-[700px] flex items-center"
+        className="relative pb-0 z-10 flex items-center"
       >
         {/* Triangular decoration */}
-        <div className={`absolute bottom-0 left-0 z-10 floating-decoration`}>
+        <div className={`absolute bottom-0 left-0 z-10`}>
           <Image
             src="/images/Balls Pattern 2.png"
             alt="Decoration"
@@ -576,9 +575,6 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             className=""
           />
         </div>
-
-        {/* Primary color overlay for background */}
-        <div className="absolute inset-0 bg-[#0A2A1A] opacity-80 z-0"></div>
 
         {/* Saudi flag in background with primary color overlay */}
         <div
@@ -593,26 +589,12 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           />
         </div>
 
-        {/* Player image */}
-        <div
-          className={`absolute top-0 bottom-0 ltr:right-0 rtl:left-0 -translate-y-28 w-[70%] md:w-[60%] skill-player`}
-        >
-          <Image
-            src="/images/Mask Group 10.png"
-            alt="Pool Player"
-            width={800}
-            height={800}
-            className="object-contain rtl:transform rtl:scale-x-[-1] absolute ltr:right-0 rtl:left-0"
-            priority
-          />
-        </div>
-
         <div className="container mx-auto px-4 relative z-20">
           <div className="flex flex-col md:flex-row items-center">
             <div
               className={`w-full md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-8 rtl:pr-0 rtl:md:pr-0 rtl:pl-0 rtl:md:pl-8 leading-16`}
             >
-              <div className="p-6 rounded-lg">
+              <div className="p-6 rounded-xl max-w-lg">
                 <h2
                   className={`text-[#BF9447] text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-wide uppercase skill-title`}
                 >
@@ -625,6 +607,17 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                     "GET YOUR CHANCE TO WATCH THESE TALENTED PLAYERS."}
                 </p>
               </div>
+            </div>
+            {/* Player image */}
+            <div className={`skill-player w-full md:w-1/2 flex justify-center`}>
+              <Image
+                src="/images/Mask Group 10.png"
+                alt="Pool Player"
+                width={800}
+                height={800}
+                className="object-contain rtl:transform rtl:scale-x-[-1]"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -659,7 +652,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
             {/* Live Match Card 1 */}
             <div
-              className={`bg-white rounded-lg md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] match-card`}
+              className={`bg-white rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] match-card`}
             >
               <div className="flex justify-between items-center">
                 {/* Player 1 */}
@@ -680,7 +673,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
                 {/* VS and Live indicator */}
                 <div className="flex flex-col items-center">
-                  <div className="px-4 py-2 rounded-lg bg-[#BF9447] flex items-center justify-center mb-3">
+                  <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
                     <span className="text-white font-bold text-sm">VS</span>
                   </div>
                   <span className="bg-red-700 text-white px-6 py-2 rounded-full text-xs font-semibold">
@@ -708,7 +701,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
             {/* Live Match Card 2 */}
             <div
-              className={`bg-white rounded-lg md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] match-card`}
+              className={`bg-white rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] match-card`}
             >
               <div className="flex justify-between items-center">
                 {/* Player 1 */}
@@ -729,7 +722,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
                 {/* VS and Live indicator */}
                 <div className="flex flex-col items-center">
-                  <div className="px-4 py-2 rounded-lg bg-[#BF9447] flex items-center justify-center mb-3">
+                  <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
                     <span className="text-white font-bold text-sm">VS</span>
                   </div>
                   <span className="bg-red-700 text-white px-6 py-2 rounded-full text-xs font-semibold">
@@ -766,7 +759,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Upcoming Match Card 1 */}
               <div
-                className={`bg-[#0D3520] border border-[#1C3C2C] rounded-lg md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] upcoming-card`}
+                className={`bg-[#0D3520] border border-[#1C3C2C] rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] upcoming-card`}
               >
                 <div className="flex justify-between items-center">
                   {/* Player 1 */}
@@ -787,7 +780,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
                   {/* VS and Time indicator */}
                   <div className="flex flex-col items-center">
-                    <div className="px-4 py-2 rounded-lg bg-[#BF9447] flex items-center justify-center mb-3">
+                    <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
                       <span className="text-white font-bold text-sm">VS</span>
                     </div>
                     <span className="bg-gray-200/20 text-white px-4 py-2 rounded-full text-xs font-medium">
@@ -815,7 +808,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
               {/* Upcoming Match Card 2 */}
               <div
-                className={`bg-[#0D3520] border border-[#1C3C2C] rounded-lg md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] upcoming-card`}
+                className={`bg-[#0D3520] border border-[#1C3C2C] rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] upcoming-card`}
               >
                 <div className="flex justify-between items-center">
                   {/* Player 1 */}
@@ -836,7 +829,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
                   {/* VS and Time indicator */}
                   <div className="flex flex-col items-center">
-                    <div className="px-4 py-2 rounded-lg bg-[#BF9447] flex items-center justify-center mb-3">
+                    <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
                       <span className="text-white font-bold text-sm">VS</span>
                     </div>
                     <span className="bg-gray-200/20 text-white px-4 py-2 rounded-full text-xs font-medium">
@@ -894,70 +887,78 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             <div className="transition-transform hover:scale-[1.02] active:scale-[0.98]">
               <Link
                 href={`/${lang}/players`}
-                className="see-all-button bg-[#BF9447] text-white px-6 py-3 text-sm font-medium rounded-lg"
+                className="see-all-button bg-[#BF9447] text-white px-6 py-3 text-sm font-medium rounded-xl"
               >
                 {page.common?.viewAll || "See All"}
               </Link>
             </div>
           </div>
+          <div className="relative">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation={{
+                nextEl: ".player-swiper-button-next",
+                prevEl: ".player-swiper-button-prev",
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
+              {/* Player 1 */}
+              <SwiperSlide>
+                <div className={`mx-auto player-card w-fit p-4 rounded-none`}>
+                  <Image
+                    src="/images/Top Player Full.png"
+                    alt="Top Player"
+                    width={400}
+                    height={400}
+                    className="transition-transform hover:scale-[1.02] pb-4"
+                  />
+                </div>
+              </SwiperSlide>
+              {/* Player 2 */}
+              <SwiperSlide>
+                <div className={`mx-auto player-card w-fit p-4 rounded-none`}>
+                  <Image
+                    src="/images/Top Playe Full.png"
+                    alt="Top Player"
+                    width={400}
+                    height={400}
+                    className="transition-transform hover:scale-[1.02] pb-4"
+                  />
+                </div>
+              </SwiperSlide>
 
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {/* Player 1 */}
-            <SwiperSlide>
-              <div
-                className={`mx-auto player-card w-fit p-4 rounded-none transition-transform hover:scale-[1.02]`}
-              >
-                <Image
-                  src="/images/Top Player Full.png"
-                  alt="Top Player"
-                  width={400}
-                  height={400}
-                  className=""
-                />
-              </div>
-            </SwiperSlide>
-            {/* Player 2 */}
-            <SwiperSlide>
-              <div
-                className={`mx-auto player-card w-fit p-4 rounded-none transition-transform hover:scale-[1.02]`}
-              >
-                <Image
-                  src="/images/Top Playe Full.png"
-                  alt="Top Player"
-                  width={400}
-                  height={400}
-                  className=""
-                />
-              </div>
-            </SwiperSlide>
+              {/* Player 3 */}
+              <SwiperSlide>
+                <div className={`mx-auto player-card w-fit p-4 rounded-none`}>
+                  <Image
+                    src="/images/Top Playe Full-1.png"
+                    alt="Top Player"
+                    width={400}
+                    height={400}
+                    className="transition-transform hover:scale-[1.02] pb-4"
+                  />
+                </div>
+              </SwiperSlide>
+            </Swiper>
 
-            {/* Player 3 */}
-            <SwiperSlide>
-              <div
-                className={`mx-auto player-card w-fit p-4 rounded-none transition-transform hover:scale-[1.02]`}
-              >
-                <Image
-                  src="/images/Top Playe Full-1.png"
-                  alt="Top Player"
-                  width={400}
-                  height={400}
-                  className=""
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
+            {/* player Navigation Arrows */}
+            <button className="player-swiper-button-prev disabled:hidden absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button className="player-swiper-button-next disabled:hidden absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -982,7 +983,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               <div className="transition-transform hover:scale-[1.02] active:scale-[0.98]">
                 <Link
                   href={`/${lang}/news`}
-                  className="see-all-button bg-[#BF9447] text-white px-6 py-3 text-sm font-medium rounded-lg"
+                  className="see-all-button bg-[#BF9447] text-white px-6 py-3 text-sm font-medium rounded-xl"
                 >
                   {page.news?.seeMore || "See More"}
                 </Link>
@@ -991,7 +992,9 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
             <div className="main-news-card flex flex-col lg:flex-row gap-8">
               {/* Main News - Left Side */}
-              <div className={`w-full lg:w-7/12`}>
+              <div
+                className={`w-full lg:w-7/12 transition-transform hover:scale-[1.02]`}
+              >
                 <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
                   <div className="relative">
                     <Image
@@ -1126,8 +1129,8 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                 },
               }}
               navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: ".custom-swiper-button-next",
+                prevEl: ".custom-swiper-button-prev",
               }}
               autoplay={{
                 delay: 3500,
@@ -1145,7 +1148,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                         alt={person.name}
                         width={100}
                         height={100}
-                        className="w-full h-full object-cover rounded-full p-2"
+                        className="w-full h-full object-cover rounded-full p-2 transition-transform hover:scale-[1.1]"
                       />
                     </div>
                     <div className="text-white text-lg font-semibold text-center">
@@ -1155,6 +1158,15 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            {/* Custom Navigation Arrows */}
+            <button className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
           </div>
         </section>
       </div>
@@ -1178,7 +1190,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               <div>
                 <Link
                   href={`/${lang}/about`}
-                  className="inline-block rounded-lg bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
+                  className="inline-block rounded-xl bg-[#BF9447] text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium hover:bg-[#A37E3B] transition-colors duration-300"
                 >
                   {page.common?.readMore || "Read More"}
                 </Link>
@@ -1217,7 +1229,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
       {/* Gallery Section */}
       <section className="py-10 relative z-10 bg-[#0A2A1A]" ref={galleryRef}>
-        <div className="container mx-auto px-4 hidden sm:block">
+        <div className="container mx-auto px-4">
           <h2
             className={`gallery-title text-white text-4xl font-bold mb-10 ml-4 rtl:ml-0 rtl:mr-4`}
           >
@@ -1225,54 +1237,54 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           </h2>
 
           {/* Gallery Layout */}
-          <div className="relative gallery-image ">
+          <div className="relative gallery-image">
             {/* Event image (large triangle - left) */}
             <div
-              className={`absolute w-[70%] top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2`}
+              className={`absolute min-w-[20rem] w-[70%] top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2`}
             >
               <Image
                 src="/images/Mask group-4.png"
                 alt="Event"
                 width={900}
                 height={600}
-                className="w-full h-auto"
+                className="w-full h-auto transition-transform hover:scale-[1.05]"
               />
             </div>
 
             {/* Restaurant image (top right) */}
             <div
-              className={`absolute w-[40%] top-1/2 left-[40%] -translate-x-[10%] -translate-y-[100%]`}
+              className={`absolute min-w-[12rem] w-[40%] top-1/2 left-[40%] -translate-x-[10%] -translate-y-[100%]`}
             >
               <Image
                 src="/images/Mask group-5.png"
                 alt="Restaurant"
                 width={600}
                 height={400}
-                className="w-full h-auto"
+                className="w-full h-auto transition-transform hover:scale-[1.05]"
               />
             </div>
             {/* Championship image (bottom) */}
             <div
-              className={`absolute w-[30%] top-1/2 left-[40%] translate-x-[35%] -translate-y-[10%]`}
+              className={`absolute min-w-[8rem] w-[30%] top-1/2 left-[40%] translate-x-[35%] -translate-y-[10%]`}
             >
               <Image
                 src="/images/Mask group-6.png"
                 alt="Pool Championship"
                 width={600}
                 height={300}
-                className="w-full h-auto"
+                className="w-full h-auto transition-transform hover:scale-[1.05]"
               />
             </div>
             {/* Stadium image (bottom right) */}
             <div
-              className={`absolute w-[35%] top-1/2 left-[40%] translate-x-[60%] -translate-y-[80%]`}
+              className={`absolute min-w-[10rem] w-[35%] top-1/2 left-[40%] translate-x-[60%] -translate-y-[80%]`}
             >
               <Image
                 src="/images/Mask group-7.png"
                 alt="Stadium"
                 width={600}
                 height={400}
-                className="w-full h-auto"
+                className="w-full h-auto transition-transform hover:scale-[1.05]"
               />
             </div>
 
@@ -1280,7 +1292,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             <div className="h-[650px]"></div>
           </div>
         </div>
-        <div className="flex flex-col gap-4 sm:hidden">
+        {/* <div className="flex flex-col gap-4 sm:hidden">
           <h2
             className={`text-white text-4xl font-bold mb-10 ml-4 rtl:ml-0 rtl:mr-4`}
           >
@@ -1292,7 +1304,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               alt="Event"
               width={900}
               height={600}
-              className="w-full h-auto"
+              className="w-full h-auto transition-transform hover:scale-[1.1]"
             />
           </div>
           <div className="gallery-image">
@@ -1301,7 +1313,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               alt="Restaurant"
               width={600}
               height={400}
-              className="w-full h-auto"
+              className="w-full h-auto transition-transform hover:scale-[1.1]"
             />
           </div>
           <div className="gallery-image">
@@ -1310,7 +1322,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               alt="Pool Championship"
               width={600}
               height={300}
-              className="w-full h-auto"
+              className="w-full h-auto transition-transform hover:scale-[1.1]"
             />
           </div>
           <div className="gallery-image">
@@ -1319,10 +1331,10 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               alt="Stadium"
               width={600}
               height={400}
-              className="w-full h-auto"
+              className="w-full h-auto transition-transform hover:scale-[1.1]"
             />
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Organizers Section */}
@@ -1336,17 +1348,23 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </h2>
             <div className={`organizers-divider h-[1px] bg-[#1C3C2C]`}></div>
           </div>
-
           <div
-            className={`organizers-image grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center`}
+            className={`organizers-image grid grid-cols-2 md:grid-cols-4  gap-6 items-center`}
           >
-            <Image
-              src="/images/Organizers.png"
-              alt="Organizers"
-              width={1000}
-              height={100}
-              className="col-span-full w-full h-auto"
-            />
+            {[...Array(12)].map((_, index) => (
+              <div
+                key={index}
+                className="transition-transform hover:scale-[1.1]"
+              >
+                <Image
+                  src={`/images/Organizer ${index + 1}.png`}
+                  alt={`Organizer ${index + 1}`}
+                  width={100}
+                  height={100}
+                  className="w-[20rem] h-[10rem] max-w-[250px] max-h-[250px] object-contain mx-auto"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
