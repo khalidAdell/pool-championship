@@ -561,10 +561,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       </section>
 
       {/* A Game of Skill and Speed Section */}
-      <section
-        ref={skillSectionRef}
-        className="relative pb-0 z-10 flex items-center"
-      >
+      <section ref={skillSectionRef} className="relative pb-0 z-10 md:mt-40">
         {/* Triangular decoration */}
         <div className={`absolute bottom-0 left-0 z-10`}>
           <Image
@@ -589,7 +586,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           />
         </div>
 
-        <div className="container mx-auto px-4 relative z-20">
+        <div className="relative z-20">
           <div className="flex flex-col md:flex-row items-center">
             <div
               className={`w-full md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-8 rtl:pr-0 rtl:md:pr-0 rtl:pl-0 rtl:md:pl-8 leading-16`}
@@ -609,7 +606,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               </div>
             </div>
             {/* Player image */}
-            <div className={`skill-player w-full md:w-1/2 flex justify-center`}>
+            <div className={`skill-player w-full md:w-1/2 flex justify-end`}>
               <Image
                 src="/images/Mask Group 10.png"
                 alt="Pool Player"
