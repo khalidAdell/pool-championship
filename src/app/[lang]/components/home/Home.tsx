@@ -636,7 +636,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         </div>
 
         <h2 className="text-4xl font-semibold text-center mb-8 text-white matches-title">
-          Matches
+          {page.matches?.matches || "Matches"}
         </h2>
 
         <div className="container mx-auto px-4 relative">
@@ -646,104 +646,135 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             {page.matches?.live || "Live"}
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-            {/* Live Match Card 1 */}
-            <div
-              className={`bg-white rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] match-card`}
+          <div className="relative mb-10">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation={{
+                nextEl: ".match-swiper-button-next",
+                prevEl: ".match-swiper-button-prev",
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
             >
-              <div className="flex justify-between items-center">
-                {/* Player 1 */}
-                <div className="flex flex-col items-center">
-                  <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                    <Image
-                      src="/images/Player Photo.png"
-                      alt="Player 1"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-[#0A2A1A] font-bold text-lg">
-                    {page.matches?.playerName || "Player Name"}
-                  </span>
-                </div>
+              {/* Live Match Card 1 */}
+              <SwiperSlide className="match-card">
+                <div
+                  className={`bg-white rounded-xl md:p-6 p-4 m-2 shadow-lg transition-transform hover:scale-[1.02]`}
+                >
+                  <div className="flex justify-between items-center">
+                    {/* Player 1 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                        <Image
+                          src="/images/Player Photo.png"
+                          alt="Player 1"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-[#0A2A1A] font-bold text-lg">
+                        {page.matches?.playerName || "Player Name"}
+                      </span>
+                    </div>
 
-                {/* VS and Live indicator */}
-                <div className="flex flex-col items-center">
-                  <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
-                    <span className="text-white font-bold text-sm">VS</span>
-                  </div>
-                  <span className="bg-red-700 text-white px-6 py-2 rounded-full text-xs font-semibold">
-                    {page.matches?.live || "Live"}
-                  </span>
-                </div>
+                    {/* VS and Live indicator */}
+                    <div className="flex flex-col items-center">
+                      <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
+                        <span className="text-white font-bold text-sm">VS</span>
+                      </div>
+                      <span className="bg-red-700 text-white px-6 py-2 rounded-full text-xs font-semibold">
+                        {page.matches?.live || "Live"}
+                      </span>
+                    </div>
 
-                {/* Player 2 */}
-                <div className="flex flex-col items-center">
-                  <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                    <Image
-                      src="/images/Player 2 Photo.png"
-                      alt="Player 2"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
+                    {/* Player 2 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                        <Image
+                          src="/images/Player 2 Photo.png"
+                          alt="Player 2"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-[#0A2A1A] font-bold text-lg">
+                        {page.matches?.playerName || "Player Name"}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-[#0A2A1A] font-bold text-lg">
-                    {page.matches?.playerName || "Player Name"}
-                  </span>
                 </div>
-              </div>
-            </div>
+              </SwiperSlide>
 
-            {/* Live Match Card 2 */}
-            <div
-              className={`bg-white rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] match-card`}
-            >
-              <div className="flex justify-between items-center">
-                {/* Player 1 */}
-                <div className="flex flex-col items-center">
-                  <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                    <Image
-                      src="/images/Player Photo.png"
-                      alt="Player 1"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-[#0A2A1A] font-bold text-lg">
-                    {page.matches?.playerName || "Player Name"}
-                  </span>
-                </div>
+              {/* Live Match Card 2 */}
+              <SwiperSlide className="match-card">
+                <div
+                  className={`bg-white rounded-xl md:p-6 p-4 m-2 shadow-lg transition-transform hover:scale-[1.02]`}
+                >
+                  <div className="flex justify-between items-center">
+                    {/* Player 1 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                        <Image
+                          src="/images/Player Photo.png"
+                          alt="Player 1"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-[#0A2A1A] font-bold text-lg">
+                        {page.matches?.playerName || "Player Name"}
+                      </span>
+                    </div>
 
-                {/* VS and Live indicator */}
-                <div className="flex flex-col items-center">
-                  <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
-                    <span className="text-white font-bold text-sm">VS</span>
-                  </div>
-                  <span className="bg-red-700 text-white px-6 py-2 rounded-full text-xs font-semibold">
-                    {page.matches?.live || "Live"}
-                  </span>
-                </div>
+                    {/* VS and Live indicator */}
+                    <div className="flex flex-col items-center">
+                      <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
+                        <span className="text-white font-bold text-sm">VS</span>
+                      </div>
+                      <span className="bg-red-700 text-white px-6 py-2 rounded-full text-xs font-semibold">
+                        {page.matches?.live || "Live"}
+                      </span>
+                    </div>
 
-                {/* Player 2 */}
-                <div className="flex flex-col items-center">
-                  <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                    <Image
-                      src="/images/Player 2 Photo.png"
-                      alt="Player 2"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
+                    {/* Player 2 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                        <Image
+                          src="/images/Player 2 Photo.png"
+                          alt="Player 2"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-[#0A2A1A] font-bold text-lg">
+                        {page.matches?.playerName || "Player Name"}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-[#0A2A1A] font-bold text-lg">
-                    {page.matches?.playerName || "Player Name"}
-                  </span>
                 </div>
-              </div>
-            </div>
+              </SwiperSlide>
+            </Swiper>
+
+            {/* Navigation Arrows */}
+            <button className="match-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button className="match-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
           </div>
 
           <div className="upcoming-section">
@@ -753,104 +784,134 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               {page.matches?.upcoming || "Upcoming"}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Upcoming Match Card 1 */}
-              <div
-                className={`bg-[#0D3520] border border-[#1C3C2C] rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] upcoming-card`}
+            <div className="relative mb-10">
+              <Swiper
+                modules={[Navigation, Autoplay]}
+                spaceBetween={30}
+                slidesPerView={1}
+                navigation={{
+                  nextEl: ".upcoming-swiper-button-next",
+                  prevEl: ".upcoming-swiper-button-prev",
+                }}
+                breakpoints={{
+                  800: {
+                    slidesPerView: 2,
+                  },
+                }}
               >
-                <div className="flex justify-between items-center">
-                  {/* Player 1 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                      <Image
-                        src="/images/Player Photo.png"
-                        alt="Player 1"
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <span className="text-white font-bold md:text-lg">
-                      {page.matches?.playerName || "Player Name"}
-                    </span>
-                  </div>
+                {/* Upcoming Match Card 1 */}
+                <SwiperSlide className="upcoming-card">
+                  <div
+                    className={`bg-[#0D3520] border border-[#1C3C2C] rounded-xl md:p-6 p-4 m-2 shadow-lg transition-transform hover:scale-[1.02]`}
+                  >
+                    <div className="flex justify-between items-center">
+                      {/* Player 1 */}
+                      <div className="flex flex-col items-center">
+                        <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                          <Image
+                            src="/images/Player Photo.png"
+                            alt="Player 1"
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-white font-bold md:text-lg">
+                          {page.matches?.playerName || "Player Name"}
+                        </span>
+                      </div>
 
-                  {/* VS and Time indicator */}
-                  <div className="flex flex-col items-center">
-                    <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
-                      <span className="text-white font-bold text-sm">VS</span>
-                    </div>
-                    <span className="bg-gray-200/20 text-white px-4 py-2 rounded-full text-xs font-medium">
-                      7:00 PM
-                    </span>
-                  </div>
+                      {/* VS and Time indicator */}
+                      <div className="flex flex-col items-center">
+                        <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
+                          <span className="text-white font-bold text-sm">
+                            VS
+                          </span>
+                        </div>
+                        <span className="bg-gray-200/20 text-white px-4 py-2 rounded-full text-xs font-medium">
+                          7:00 PM
+                        </span>
+                      </div>
 
-                  {/* Player 2 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                      <Image
-                        src="/images/Player 2 Photo.png"
-                        alt="Player 2"
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                      />
+                      {/* Player 2 */}
+                      <div className="flex flex-col items-center">
+                        <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                          <Image
+                            src="/images/Player 2 Photo.png"
+                            alt="Player 2"
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-white font-bold md:text-lg">
+                          {page.matches?.playerName || "Player Name"}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-white font-bold md:text-lg">
-                      {page.matches?.playerName || "Player Name"}
-                    </span>
                   </div>
-                </div>
-              </div>
+                </SwiperSlide>
+                {/* Upcoming Match Card 2 */}
+                <SwiperSlide className="upcoming-card">
+                  <div
+                    className={`bg-[#0D3520] border border-[#1C3C2C] rounded-xl md:p-6 p-4 m-2 shadow-lg transition-transform hover:scale-[1.02]`}
+                  >
+                    <div className="flex justify-between items-center">
+                      {/* Player 1 */}
+                      <div className="flex flex-col items-center">
+                        <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                          <Image
+                            src="/images/Player Photo.png"
+                            alt="Player 1"
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-white font-bold md:text-lg">
+                          {page.matches?.playerName || "Player Name"}
+                        </span>
+                      </div>
 
-              {/* Upcoming Match Card 2 */}
-              <div
-                className={`bg-[#0D3520] border border-[#1C3C2C] rounded-xl md:p-6 p-4 shadow-lg transition-transform hover:scale-[1.02] upcoming-card`}
-              >
-                <div className="flex justify-between items-center">
-                  {/* Player 1 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                      <Image
-                        src="/images/Player Photo.png"
-                        alt="Player 1"
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <span className="text-white font-bold md:text-lg">
-                      {page.matches?.playerName || "Player Name"}
-                    </span>
-                  </div>
+                      {/* VS and Time indicator */}
+                      <div className="flex flex-col items-center">
+                        <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
+                          <span className="text-white font-bold text-sm">
+                            VS
+                          </span>
+                        </div>
+                        <span className="bg-gray-200/20 text-white px-4 py-2 rounded-full text-xs font-medium">
+                          7:00 PM
+                        </span>
+                      </div>
 
-                  {/* VS and Time indicator */}
-                  <div className="flex flex-col items-center">
-                    <div className="px-4 py-2 rounded-xl bg-[#BF9447] flex items-center justify-center mb-3">
-                      <span className="text-white font-bold text-sm">VS</span>
+                      {/* Player 2 */}
+                      <div className="flex flex-col items-center">
+                        <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
+                          <Image
+                            src="/images/Player 2 Photo.png"
+                            alt="Player 2"
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-white font-bold md:text-lg">
+                          {page.matches?.playerName || "Player Name"}
+                        </span>
+                      </div>
                     </div>
-                    <span className="bg-gray-200/20 text-white px-4 py-2 rounded-full text-xs font-medium">
-                      7:00 PM
-                    </span>
                   </div>
+                </SwiperSlide>
+              </Swiper>
+              {/* Navigation Arrows */}
+              <button className="upcoming-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </button>
 
-                  {/* Player 2 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-[80px] h-[80px] bg-[#0A2A1A] rounded-full mb-3 overflow-hidden">
-                      <Image
-                        src="/images/Player 2 Photo.png"
-                        alt="Player 2"
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <span className="text-white font-bold md:text-lg">
-                      {page.matches?.playerName || "Player Name"}
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <button className="upcoming-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
             </div>
           </div>
         </div>
@@ -916,7 +977,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                     alt="Top Player"
                     width={400}
                     height={400}
-                    className="transition-transform hover:scale-[1.02] pb-4"
+                    className="transition-transform hover:scale-[1.08] pb-4"
                   />
                 </div>
               </SwiperSlide>
@@ -928,7 +989,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                     alt="Top Player"
                     width={400}
                     height={400}
-                    className="transition-transform hover:scale-[1.02] pb-4"
+                    className="transition-transform hover:scale-[1.08] pb-4"
                   />
                 </div>
               </SwiperSlide>
@@ -941,18 +1002,18 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
                     alt="Top Player"
                     width={400}
                     height={400}
-                    className="transition-transform hover:scale-[1.02] pb-4"
+                    className="transition-transform hover:scale-[1.08] pb-4"
                   />
                 </div>
               </SwiperSlide>
             </Swiper>
 
             {/* player Navigation Arrows */}
-            <button className="player-swiper-button-prev disabled:hidden absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="player-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
 
-            <button className="player-swiper-button-next disabled:hidden absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="player-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
           </div>
@@ -1157,11 +1218,11 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </Swiper>
 
             {/* Custom Navigation Arrows */}
-            <button className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="custom-swiper-button-prev absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
 
-            <button className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="custom-swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
           </div>
@@ -1210,7 +1271,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
               {/* Billiard table image */}
               <div
-                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex justify-start md:block rtl:transform rtl:scale-x-[-1]`}
+                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex rtl:justify-start ltr:justify-end md:block rtl:transform rtl:scale-x-[-1]`}
               >
                 <Image
                   src="/images/58878.png"
@@ -1349,17 +1410,16 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             className={`organizers-image grid grid-cols-2 md:grid-cols-4  gap-6 items-center`}
           >
             {[...Array(12)].map((_, index) => (
-              <div
-                key={index}
-                className="transition-transform hover:scale-[1.1]"
-              >
-                <Image
-                  src={`/images/Organizer ${index + 1}.png`}
-                  alt={`Organizer ${index + 1}`}
-                  width={100}
-                  height={100}
-                  className="w-[20rem] h-[10rem] max-w-[250px] max-h-[250px] object-contain mx-auto"
-                />
+              <div key={index}>
+                <div className="group transition-transform hover:scale-105">
+                  <Image
+                    src={`/images/Organizer ${index + 1}.png`}
+                    alt={`Organizer ${index + 1}`}
+                    width={100}
+                    height={100}
+                    className="w-full max-w-[250px] max-h-[250px] object-contain mx-auto transition duration-100 group-hover:grayscale group-hover:invert-[0.5]"
+                  />
+                </div>
               </div>
             ))}
           </div>
