@@ -1,0 +1,65 @@
+{
+  "page": {
+    "home": {
+      "home": "Home"
+    },
+    "navigation": {
+      "about": "About",
+      "lifeInJeddah": "Life In Jeddah",
+      "mediaCenter": "Media Center",
+      "matches": "Matches",
+      "contactUs": "Contact Us"
+    },
+    "language": {
+      "switchTo": "Switch to",
+      "english": "English",
+      "arabic": "Arabic"
+    },
+    "common": {
+      "readMore": "Read More",
+      "viewAll": "View All",
+      "learnMore": "Learn More"
+    },
+    "hero": {
+      "title": "POOL GAME EVER.",
+      "subtitle": "Experience The Best",
+      "location": "Taking Place in Jeddah, Saudi Arabia",
+      "date": "3 - 8 June 2024"
+    },
+    "skillSection": {
+      "title": "A GAME OF\nSKILL AND\nSPEED",
+      "subtitle": "GET YOUR CHANCE TO WATCH\nTHESE TALENTED PLAYERS."
+    },
+    "matches": {
+      "live": "Live",
+      "upcoming": "Upcoming",
+      "playerName": "Player Name"
+    },
+    "players": {
+      "topPlayers": "Top Players"
+    },
+    "news": {
+      "popularNews": "Popular News",
+      "seeMore": "See More",
+      "headline": "Headline May Be Written Here.",
+      "details": "Details Here Details Here Details Here Details Here Details Here Details Here Details Here",
+      "videoTitle": "Video Title May Be Written Here."
+    },
+    "participants": {
+      "title": "Participants"
+    },
+    "about": {
+      "title": "ABOUT",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. nisl ut aliquip ex ea commodo consequat. nisl ut aliquip ex ea commodo consequat. nisl ut aliquip ex ea commodo consequat."
+    },
+    "gallery": {
+      "title": "Gallery"
+    },
+    "organizers": {
+      "title": "Organizers"
+    },
+    "footer": {
+      "copyright": "World Pool Championship. All Rights Reserved."
+    }
+  }
+}
