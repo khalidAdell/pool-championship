@@ -27,7 +27,6 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const organizersRef = useRef<HTMLDivElement>(null);
-  const footerRef = useRef<HTMLDivElement>(null);
 
   const participants = [
     {
@@ -452,32 +451,6 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
         opacity: 0,
         y: 30,
         duration: 1,
-        ease: "power2.out",
-      });
-
-      // Footer animations
-      gsap.from(".footer-skyline", {
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power2.out",
-      });
-
-      gsap.from(".footer-copyright", {
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: 0.3,
         ease: "power2.out",
       });
 
@@ -1016,17 +989,17 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="main-news-card flex flex-col lg:flex-row gap-8">
               {/* Main News - Left Side */}
               <div className={`w-full lg:w-7/12`}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
                   <div className="relative">
                     <Image
                       src="/images/Mask group-1.png"
                       alt="News"
                       width={800}
                       height={400}
-                      className="main-news-card w-full h-[300px] object-cover"
+                      className="w-full h-[300px] object-cover"
                     />
                   </div>
                   <div className="p-6">
@@ -1054,7 +1027,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
               <div className={`w-full lg:w-5/12 flex flex-col gap-6 h-[460px]`}>
                 {/* Video 1 */}
                 <div
-                  className={`video-news-card bg-white rounded-lg overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02]`}
+                  className={`bg-white rounded-3xl overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02]`}
                 >
                   <div className="w-1/2 relative">
                     <Image
@@ -1092,7 +1065,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
                 {/* Video 2 */}
                 <div
-                  className={`video-news-card bg-white rounded-lg overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02]`}
+                  className={`bg-white rounded-3xl overflow-hidden shadow-lg flex transition-transform hover:scale-[1.02]`}
                 >
                   <div className="w-1/2 relative">
                     <Image
@@ -1228,14 +1201,13 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
               {/* Billiard table image */}
               <div
-                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-full md:w-auto flex justify-center md:block rtl:transform rtl:scale-x-[-1]`}
+                className={`about-images absolute ltr:right-0 rtl:left-0 top-0 z-10 w-[80%] md:w-auto flex justify-center md:block rtl:transform rtl:scale-x-[-1]`}
               >
                 <Image
                   src="/images/58878.png"
                   alt="Pool Table"
                   width={400}
                   height={300}
-                  className=""
                 />
               </div>
             </div>
@@ -1378,32 +1350,6 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer
-        className={`py-8 border-t border-[#1C3C2C] relative z-10`}
-        ref={footerRef}
-      >
-        <div
-          className={`footer-skyline mb-6 transition-transform hover:scale-[1.02]`}
-        >
-          <Image
-            src="/images/Jeddah Skyline.png"
-            alt="Jeddah Skyline"
-            width={1000}
-            height={100}
-            className="col-span-full w-full h-auto"
-            unoptimized
-          />
-        </div>
-        <div className={`footer-copyright container mx-auto px-4 text-center`}>
-          <p className="text-[#A3A3A3] text-sm hover:text-[#BF9447] transition-colors duration-300">
-            {new Date().getFullYear()}{" "}
-            {page.footer?.copyright ||
-              "World Pool Championship. All Rights Reserved."}
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

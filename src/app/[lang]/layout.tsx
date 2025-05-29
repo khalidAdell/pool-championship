@@ -4,6 +4,7 @@ import { Locale } from "../../../i18n.config";
 import { getDictionary } from "../../../lib/dictionary";
 import Navbar from "./components/Navbar";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default async function RootLayout({
       >
         <Navbar lang={lang} table={page} />
         {children}
+        <Footer page={page} />
       </body>
     </html>
   );
