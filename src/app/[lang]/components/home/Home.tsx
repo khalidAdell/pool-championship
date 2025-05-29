@@ -621,7 +621,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
       </section>
 
       {/* Matches Section */}
-      <section ref={matchesRef} className="relative py-16 z-10">
+      <section ref={matchesRef} className="relative py-16 z-20">
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
           <div className="absolute bottom-[20%] left-0 rtl:left-auto rtl:right-0 w-[150px] h-[150px] opacity-10 spin-decoration">
