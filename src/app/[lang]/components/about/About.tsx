@@ -430,7 +430,7 @@ const AboutPage = ({ lang, page }: { lang: Locale; page: any }) => {
             <div className="relative h-[400px] history-image">
               <div className="absolute inset-0 gentle-float">
                 <Image
-                  src="/images/58878.png"
+                  src="/images/Mask group-3.png"
                   alt="Pool History"
                   width={500}
                   height={400}

@@ -1292,7 +1292,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
           <div className="relative gallery-image">
             {/* Event image (large triangle - left) */}
             <div
-              className={`absolute min-w-[20rem] w-[70%] top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2`}
+              className={`z-[10] absolute min-w-[20rem] w-[70%] top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2`}
             >
               <Image
                 src="/images/Mask group-4.png"
@@ -1305,7 +1305,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
 
             {/* Restaurant image (top right) */}
             <div
-              className={`absolute min-w-[12rem] w-[40%] top-1/2 left-[40%] -translate-x-[10%] -translate-y-[100%]`}
+              className={`z-[9] absolute min-w-[12rem] w-[40%] top-1/2 left-[40%] -translate-x-[10%] -translate-y-[100%]`}
             >
               <Image
                 src="/images/Mask group-5.png"
@@ -1317,7 +1317,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </div>
             {/* Championship image (bottom) */}
             <div
-              className={`absolute min-w-[8rem] w-[30%] top-1/2 left-[40%] translate-x-[35%] -translate-y-[10%]`}
+              className={`z-[8] absolute min-w-[8rem] w-[30%] top-1/2 left-[40%] translate-x-[35%] -translate-y-[10%]`}
             >
               <Image
                 src="/images/Mask group-6.png"
@@ -1329,7 +1329,7 @@ const HomePage = ({ lang, page }: { lang: Locale; page: any }) => {
             </div>
             {/* Stadium image (bottom right) */}
             <div
-              className={`absolute min-w-[10rem] w-[35%] top-1/2 left-[40%] translate-x-[60%] -translate-y-[80%]`}
+              className={`z-[7] absolute min-w-[10rem] w-[35%] top-1/2 left-[40%] translate-x-[60%] -translate-y-[80%]`}
             >
               <Image
                 src="/images/Mask group-7.png"
