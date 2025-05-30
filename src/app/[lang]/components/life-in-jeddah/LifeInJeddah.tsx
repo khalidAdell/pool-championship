@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import type { Locale } from "../../../../../i18n.config";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -44,28 +45,28 @@ const LifeInJeddahPage = ({
     {
       id: 1,
       name: "Historic Jeddah",
-      description: "Al-Balad UNESCO World Heritage Site",
+      description: "Al-Balad UNESCO World Heritage Site with coral houses",
       image: "/images/Mask group-3.png",
       category: "Heritage",
     },
     {
       id: 2,
       name: "King Fahd Fountain",
-      description: "World's tallest water fountain",
+      description: "World's tallest water fountain on the Red Sea",
       image: "/images/Mask group-3.png",
       category: "Landmark",
     },
     {
       id: 3,
       name: "Corniche",
-      description: "Beautiful waterfront promenade",
+      description: "Beautiful waterfront promenade with parks and cafes",
       image: "/images/Mask group-3.png",
       category: "Leisure",
     },
     {
       id: 4,
       name: "Red Sea Mall",
-      description: "Premier shopping destination",
+      description: "Premier shopping destination with luxury brands",
       image: "/images/Mask group-3.png",
       category: "Shopping",
     },
@@ -98,7 +99,7 @@ const LifeInJeddahPage = ({
     },
     {
       id: 4,
-      name: "Fakieh Aquarium Restaurant",
+      name: "Fakieh Aquarium",
       cuisine: "Seafood",
       specialty: "Fresh Red Sea Fish",
       rating: 4.9,
@@ -578,8 +579,11 @@ const LifeInJeddahPage = ({
               modules={[Navigation, Pagination]}
               spaceBetween={24}
               slidesPerView={1}
-              navigation={true}
               pagination={{ clickable: true }}
+              navigation={{
+                nextEl: ".Attractions-swiper-button-next",
+                prevEl: ".Attractions-swiper-button-prev",
+              }}
               breakpoints={{
                 640: {
                   slidesPerView: 2,
@@ -595,7 +599,7 @@ const LifeInJeddahPage = ({
             >
               {attractions.map((attraction) => (
                 <SwiperSlide key={attraction.id}>
-                  <div className="attraction-card bg-white rounded-lg overflow-hidden shadow-lg hover-scale h-full">
+                  <div className="attraction-card bg-white rounded-lg overflow-hidden shadow-lg hover-scale h-full m-2">
                     <div className="h-48 relative">
                       <Image
                         src={attraction.image || "/placeholder.svg"}
@@ -622,6 +626,14 @@ const LifeInJeddahPage = ({
                 </SwiperSlide>
               ))}
             </Swiper>
+            {/* Navigation Arrows */}
+            <button className="Attractions-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button className="Attractions-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
           </div>
         </div>
       </section>
@@ -644,7 +656,10 @@ const LifeInJeddahPage = ({
               modules={[Navigation, Pagination]}
               spaceBetween={24}
               slidesPerView={1}
-              navigation={true}
+              navigation={{
+                nextEl: ".Cuisine-swiper-button-next",
+                prevEl: ".Cuisine-swiper-button-prev",
+              }}
               pagination={{ clickable: true }}
               breakpoints={{
                 640: {
@@ -661,7 +676,7 @@ const LifeInJeddahPage = ({
             >
               {cuisineSpots.map((spot) => (
                 <SwiperSlide key={spot.id}>
-                  <div className="cuisine-card bg-white rounded-lg overflow-hidden shadow-lg hover-scale h-full">
+                  <div className="cuisine-card bg-white rounded-lg overflow-hidden shadow-lg hover-scale h-full m-2">
                     <div className="h-32 relative">
                       <Image
                         src={spot.image || "/placeholder.svg"}
@@ -691,6 +706,13 @@ const LifeInJeddahPage = ({
                 </SwiperSlide>
               ))}
             </Swiper>
+            <button className="Cuisine-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button className="Cuisine-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
           </div>
         </div>
       </section>
@@ -736,7 +758,10 @@ const LifeInJeddahPage = ({
                   modules={[Navigation, Pagination, Autoplay]}
                   spaceBetween={0}
                   slidesPerView={1}
-                  navigation={true}
+                  navigation={{
+                    nextEl: ".shopping-swiper-button-next",
+                    prevEl: ".shopping-swiper-button-prev",
+                  }}
                   autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
@@ -757,6 +782,13 @@ const LifeInJeddahPage = ({
                     </SwiperSlide>
                   ))}
                 </Swiper>
+                <button className="shopping-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <ChevronLeft className="w-6 h-6 text-white" />
+                </button>
+
+                <button className="shopping-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <ChevronRight className="w-6 h-6 text-white" />
+                </button>
               </div>
             </div>
           </div>
@@ -775,7 +807,10 @@ const LifeInJeddahPage = ({
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={24}
               slidesPerView={1}
-              navigation={true}
+              navigation={{
+                nextEl: ".Beaches-swiper-button-next",
+                prevEl: ".Beaches-swiper-button-prev",
+              }}
               autoplay={{
                 delay: 3500,
                 disableOnInteraction: false,
@@ -805,6 +840,13 @@ const LifeInJeddahPage = ({
                 </SwiperSlide>
               ))}
             </Swiper>
+            <button className="Beaches-swiper-button-prev disabled:hidden absolute left-4 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button className="Beaches-swiper-button-next disabled:hidden absolute right-4 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-[#BF9447] hover:bg-[#D4A855] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
